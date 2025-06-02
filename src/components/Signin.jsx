@@ -118,9 +118,7 @@ function Signin() {
                     <div class="text-center pt-4 border-t border-gray-200">
                         <p class="text-sm text-gray-600">
                             Already  have an account? 
-                            <a href="signup.html" class="font-semibold text-brand-indigo hover:text-brand-purple transition-colors duration-200">
-                                SignUp here
-                            </a>
+                          <Link to={"/signup"}></Link>
                         </p>
                     </div>
                 </form>
