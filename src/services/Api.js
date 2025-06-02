@@ -2,12 +2,12 @@ import axios from "axios"
 
 export async function registerApi(data){
 
-    return await axios.post("https://127.0.0.1:8000/api/register/",data)
+    return await axios.post("https://abhiramimm.pythonanywhere.com/api/register/",data)
 }
 
 export async function getTokenApi(data){
 
-    return await axios.post("http://127.0.0.1:8000/api/token/",data)
+    return await axios.post("https://abhiramimm.pythonanywhere.com/api/token/",data)
 }
 
 export async function createAppointmentApi(data){
@@ -18,12 +18,12 @@ export async function createAppointmentApi(data){
     
     let headers={Authorization:token}
 
-    return await axios.post("http://127.0.0.1:8000/api/appointments/",data,{headers})
+    return await axios.post("https://abhiramimm.pythonanywhere.com/api/appointments/",data,{headers})
 }
 
 export async function freeSlotsApi(date){
 
-    return await axios.get(`http://127.0.0.1:8000/api/appointments/slots/?date=${date}`)
+    return await axios.get(`https://abhiramimm.pythonanywhere.com/api/appointments/slots/?date=${date}`)
     
 }
 
@@ -35,5 +35,23 @@ export async function appointmentListApi(){
     
     let headers={Authorization:token}
 
-    return await axios.get("http://127.0.0.1:8000/api/appointments/",{headers})
+    return await axios.get("https://abhiramimm.pythonanywhere.com/api/appointments/",{headers})
+}
+
+export async function appointmentDeleteApi(id){
+
+    let token=localStorage.getItem("token")
+
+    let headers={Authorization:token}
+
+    return await axios.delete(`https://abhiramimm.pythonanywhere.com/api/appointments/${id}/`,{headers})
+}
+
+export async function appointmentUpdateApi(id,data){
+
+    let token=localStorage.getItem("token")
+
+    let headers={Authorization:token}
+
+    return await axios.put(`https://abhiramimm.pythonanywhere.com/api/appointments/${id}/`,data,{headers})
 }
